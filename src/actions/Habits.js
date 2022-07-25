@@ -1,6 +1,6 @@
-import { UPDATE_STATUS, ADD_GOAL, DELETE_GOAL } from './actionTypes';
+import { UPDATE_STATUS, ADD_HABIT, DELETE_HABIT } from './Actions';
 
-//update status
+//Update status
 export function updateStatus(status) {
   return {
     type: UPDATE_STATUS,
@@ -8,18 +8,18 @@ export function updateStatus(status) {
   };
 }
 
-//add goal
-export function addGoal(goal) {
+//Add Habit
+export function addHabit(goal) {
   return {
-    type: ADD_GOAL,
+    type: ADD_HABIT,
     goal,
   };
 }
 
-//delete goal
-export function deleteGoal(goal) {
+//Delete Habit
+export function deleteHabit(goal) {
   return {
-    type: DELETE_GOAL,
+    type: DELETE_HABIT,
     goal,
   };
 }
