@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from '../reducers';
+import reducer from './reducers';
 
 //to store store data in localStorage
 const saveLocal = (state) => {

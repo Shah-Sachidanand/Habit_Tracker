@@ -9,7 +9,7 @@ const initialState = {
 export function habits(state = initialState, action) {
   switch (action.type) {
     //add habit
-    case ADD_habit:
+    case ADD_HABIT:
       return {
         habits: [...state.habits, action.habit],
         flag: false,
@@ -38,7 +38,7 @@ export function habits(state = initialState, action) {
       };
 
     //delete habit
-    case DELETE_habit:
+    case DELETE_HABIT:
       let filtered = state.habits.filter((habit) => habit.key !== action.habit.key);
       return {
         flag: false,
