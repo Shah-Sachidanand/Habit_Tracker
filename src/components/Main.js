@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Input, Row, Col } from 'antd';
-import { Button } from 'antd';
 import { addHabit, deleteHabit } from '../actions/Habits';
 import { connect } from 'react-redux';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/esm/Button';
 import Habit from './Habit';
-import { openNotify, layout, tailLayout } from '../helper';
 function Main(props) {
   //input the habit title
   const [title, setTitle] = useState('');
@@ -25,67 +24,38 @@ function Main(props) {
     );
 
     setTitle('');
-    openNotify(
-      'success',
-      'Habit Added',
-      'You Successfully added habit. Now track your habit!!'
-    );
   };
 
   //to dispatch action to delete habit
   const handleDelete = (habit) => {
     console.log('delete', habit);
     props.dispatch(deleteHabit(habit));
-
-    openNotify('error', 'Habit Removed', 'You have Successfully deleted habit!!');
   };
+  const style ={
+    margin:'30px',
+    height:'10px',
+    width:'400px',
+    marginBottom:'100px'
+  }
 
   // render input and add button along with display all cards=habit added
   return (
-    <Row justify='space-around' align='middle'>
-      <Col span={12}>
-        <div className='input-container'>
-          <Form
-            {...layout}
-            name='basic'
-            initialValues={{
-              remember: true,
-            }}
-            onFinish={handleaddHabit}
-          >
-            <Form.Item
-              name='habit'
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your Habit!',
-                },
-              ]}
-            >
-              <Input
-                onChange={handleAddChange}
-                allowClear
-                placeholder='Add Now!!'
-              />
-            </Form.Item>
-
-            <Form.Item {...tailLayout}>
-              <Button type='primary' htmlType='submit' size='large'>
-                Add Habit
-              </Button>
-            </Form.Item>
-          </Form>
-        </div>
-
-        <Habit
-          habits={props.state.habits}
-          notify={openNotify}
-          handleDelete={handleDelete}
-          history={props.history}
-        />
-      </Col>
-    </Row>
-  );
+    <div>
+    <div justify='space-around' align='middle'>
+    <Form style={style} onSubmit={handleaddHabit}>
+    <Form.Group className="mb-3">
+        <Form.Control type='text' required onChange={handleAddChange} placeholder='Add Habit Now!!'/>
+      </Form.Group>
+      <Button type='submit'>Add Habit</Button>
+      </Form>
+    </div>
+   <Habit
+   habits={props.state.habits}
+   handleDelete={handleDelete}
+   history={props.history}
+ />    
+ </div>
+  )
 }
 function mapStateToProps(state) {
   return {

@@ -1,7 +1,6 @@
 import { Row, Col, Table, Select } from 'antd';
 import { connect } from 'react-redux';
 import { updateStatus } from '../actions/Habits';
-import { openNotify } from '../helper';
 function Tracker(props) {
   // display previous 6 dates and month
   const { Option } = Select;
@@ -17,11 +16,6 @@ function Tracker(props) {
     var arr = value.split('-');
 
     props.dispatch(updateStatus(arr));
-    openNotify(
-      'success',
-      'Status update',
-      'You Successfully updated status of habit!!'
-    );
   };
 
   // columns- habit title and 7 days status. configuration to pass to render table..(ant design)

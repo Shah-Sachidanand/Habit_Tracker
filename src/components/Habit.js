@@ -1,10 +1,8 @@
-import Button from "antd/lib/button";
-import { Row } from "react-bootstrap";
-import Statistic from "antd/lib/statistic";
-import Col from "react-bootstrap/Col";
-import Card from "antd/lib/card";
 import {useNavigate} from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import '../CSS/habit.css'
 
 
 function Habit(props) {
@@ -18,45 +16,46 @@ function Habit(props) {
   const redirect = () => {
     navigate('/progress')
   };
+  const style ={
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'baseline',
+  width: '18rem', height:'10rem',
+  marginTop:'30px',
+  marginLeft:'30px'
+}
 
-  // generate cards for all the habits added..
+  // Generate cards for all the habits added..
   return (
-    <div className='habit-container'>
-      <div className='site-card-wrapper'>
+      <div id='container'>
         <Row>
-          {habits &&
-            habits.map((habit, index) => {
-              return (
-                <Col  style={{margin:'10px'}} key={index}>
-                  <Card
-                    title={habit.title}
-                    bordered={false}
-                    extra={
-                      <Button danger onClick={(e) => handleDelete(habit)}>
+          {habits && 
+          habits.map((habit, index) => {
+            return(
+              <Card style={style}>
+                <Card.Body>
+                  <Card.Title>
+                    {habit.title}-
+                    <Button className='rbtn' variant="outline-danger" size="sm" onClick={(e) => handleDelete(habit)}>
                         Remove
                       </Button>
-                    }
-                    style={{ width: 300 }}
-                    hoverable={true}
-                  >
-                    <Statistic
-                      title='Streak'
-                      value={habit.streak}
-                      suffix='/ 7'
-                    />
+                  </Card.Title>
+                  <Card.Text>
+                    <span>Streak-</span>
+                    {habit.streak}/7
+                  </Card.Text>
                     <div align='middle'>
-                      <Button onClick={redirect} type='link'>
+                      <Button  variant="info" onClick={redirect}>
                         Check Progress
                       </Button>
                     </div>
-                  </Card>
-                </Col>
-              );
-            })}
+                </Card.Body>
+              </Card>
+            )
+          })}
         </Row>
-      </div>
-    </div>
-  );
-}
+        </div>
+  )}
 
 export default Habit;
