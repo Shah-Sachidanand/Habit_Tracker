@@ -1,14 +1,22 @@
-import { Row, Col, Card, Statistic, Button } from 'antd';
+import Button from "antd/lib/button";
+import { Row } from "react-bootstrap";
+import Statistic from "antd/lib/statistic";
+import Col from "react-bootstrap/Col";
+import Card from "antd/lib/card";
+import {useNavigate} from 'react-router-dom';
+
+
 
 function Habit(props) {
 
+  const navigate = useNavigate();
   
   const { habits } = props.habits;
   const { handleDelete } = props;
 
-  //redirect to progress page
+  //Redirect to progress page
   const redirect = () => {
-    props.history.push('/progress');
+    navigate('/progress')
   };
 
   // generate cards for all the habits added..

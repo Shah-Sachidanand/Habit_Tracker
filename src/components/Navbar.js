@@ -11,19 +11,13 @@ function Navbars(){
     }
     return(
         <Navbar bg="dark" variant="light">
-      <Container>
-          <Nav className="me-auto">
-            <Nav.Link style={style}>
-                Habit-Tracker
-            </Nav.Link>
-            <Nav.Link style={style}>
-                Progress
-            </Nav.Link>
-            <Nav.Link style={style}>
-                +Add Habit
-            </Nav.Link>
-          </Nav>
-      </Container>
+            <Container>
+                <Navbar.Brand ><Link to="/" style={style}>Habit-Tracker</Link></Navbar.Brand>
+                <Nav className="me-auto">
+                    <Nav.Link><Link to="/progress" style={style}>Progress</Link></Nav.Link>
+                    <Nav.Link><Link to="/" style={style}>+Add Habit</Link></Nav.Link>
+                </Nav>
+            </Container>
         </Navbar>
     )
 }

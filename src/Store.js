@@ -5,7 +5,7 @@ import reducer from './reducers';
 const saveLocal = (state) => {
   try {
     const serialisedState = JSON.stringify(state);
-    localStorage.setItem('goal', serialisedState);
+    localStorage.setItem('habit', serialisedState);
   } catch (e) {
     console.warn(e);
   }
@@ -14,7 +14,7 @@ const saveLocal = (state) => {
 //to get data from localStorage
 const loadLocal = () => {
   try {
-    const serialisedState = localStorage.getItem('goal');
+    const serialisedState = localStorage.getItem('habit');
     if (serialisedState === null) return undefined;
     return JSON.parse(serialisedState);
   } catch (e) {

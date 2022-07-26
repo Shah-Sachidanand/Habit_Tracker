@@ -9,17 +9,17 @@ export function updateStatus(status) {
 }
 
 //Add Habit
-export function addHabit(goal) {
+export function addHabit(habit) {
   return {
     type: ADD_HABIT,
-    goal,
+    habit,
   };
 }
 
 //Delete Habit
-export function deleteHabit(goal) {
+export function deleteHabit(habit) {
   return {
     type: DELETE_HABIT,
-    goal,
+    habit,
   };
 }

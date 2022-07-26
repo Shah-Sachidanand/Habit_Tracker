@@ -1,4 +1,4 @@
-//Action types to add,update and delete goals
+//Action types to add,update and delete habits
 
 export const UPDATE_STATUS = 'UPDATE_STATUS';
 export const ADD_HABIT = 'ADD_HABIT';
