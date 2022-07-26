@@ -1,9 +1,13 @@
-import { Row, Col, Table, Select } from 'antd';
 import { connect } from 'react-redux';
 import { updateStatus } from '../actions/Habits';
+import {Row,Col,Table,Select} from 'antd'
+import {openNotify} from '../helpers'
+
+
+
 function Tracker(props) {
-  // display previous 6 dates and month
   const { Option } = Select;
+  // display previous 6 dates and month
   var date = new Date();
   var dt = date.getDate();
   var mt = date.toLocaleString('default', { month: 'short' });
@@ -16,14 +20,18 @@ function Tracker(props) {
     var arr = value.split('-');
 
     props.dispatch(updateStatus(arr));
+    openNotify(
+      'success',
+      'Status update',
+      'You Successfully updated status of habit!!'
+    );
   };
 
-  // columns- habit title and 7 days status. configuration to pass to render table..(ant design)
-  const columns = [
+  const columns =[
     {
       title: 'Habit',
       dataIndex: 'habit',
-      key: 'habit',
+      key:'habit'
     },
     {
       title: dt - 6 + ' ' + mt,
@@ -31,16 +39,12 @@ function Tracker(props) {
       key: 'dt-6',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[6]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-6'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-6'}>Done</Option>
-            <Option value={'None-' + habit.title + '-6'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[6]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-6'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-6'}>Done</Option>
+        <Option value={'None-' + habit.title + '-6'}>None</Option>
+       </Select>
+      </>
       ),
     },
     {
@@ -49,16 +53,12 @@ function Tracker(props) {
       key: 'dt-5',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[5]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-5'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-5'}>Done</Option>
-            <Option value={'None-' + habit.title + '-5'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[5]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-5'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-5'}>Done</Option>
+        <Option value={'None-' + habit.title + '-5'}>None</Option>
+      </Select>
+      </>
       ),
     },
     {
@@ -67,16 +67,12 @@ function Tracker(props) {
       key: 'dt-4',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[4]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-4'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-4'}>Done</Option>
-            <Option value={'None-' + habit.title + '-4'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[4]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-4'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-4'}>Done</Option>
+        <Option value={'None-' + habit.title + '-4'}>None</Option>
+      </Select>
+      </>
       ),
     },
     {
@@ -85,34 +81,26 @@ function Tracker(props) {
       key: 'dt-3',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[3]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-3'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-3'}>Done</Option>
-            <Option value={'None-' + habit.title + '-3'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[3]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-3'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-3'}>Done</Option>
+        <Option value={'None-' + habit.title + '-3'}>None</Option>
+      </Select>
+      </>
       ),
     },
     {
       title: dt - 2 + ' ' + mt,
-      dataIndex: 'dt_2',
+      dataIndex: 'dt_6',
       key: 'dt-2',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[2]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-2'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-2'}>Done</Option>
-            <Option value={'None-' + habit.title + '-2'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[2]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-2'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-2'}>Done</Option>
+        <Option value={'None-' + habit.title + '-2'}>None</Option>
+      </Select>
+      </>
       ),
     },
     {
@@ -121,40 +109,32 @@ function Tracker(props) {
       key: 'dt-1',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[1]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-1'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-1'}>Done</Option>
-            <Option value={'None-' + habit.title + '-1'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[1]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-1'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-1'}>Done</Option>
+        <Option value={'None-' + habit.title + '-1'}>None</Option>
+      </Select>
+      </>
       ),
     },
     {
-      title: dt + ' ' + mt,
+      title: dt  + ' ' + mt,
       dataIndex: 'dt',
       key: 'dt',
       render: (habit) => (
         <>
-          <Select
-            defaultValue={habit.status[0]}
-            style={{ width: 120 }}
-            onChange={handleUpdateStatus}
-          >
-            <Option value={'Not Done-' + habit.title + '-0'}>Not Done</Option>
-            <Option value={'Done-' + habit.title + '-0'}>Done</Option>
-            <Option value={'None-' + habit.title + '-0'}>None</Option>
-          </Select>
-        </>
+        <Select style={{width:'120'}} defaultValue={habit.status[0]} onChange={handleUpdateStatus}>
+        <Option value= {'Not Done-' + habit.title + '-0'}>Not Done</Option>
+        <Option value={'Done-' + habit.title + '-0'}>Done</Option>
+        <Option value={'None-' + habit.title + '-0'}>None</Option>
+      </Select>
+      </>
       ),
     },
   ];
+    // to populate data in table...
 
-  // to populate data in table...
-  const data = [];
+  const data =[];
   habits.map((habit, index) => {
     data.push({
       key: index + 1,
@@ -169,18 +149,15 @@ function Tracker(props) {
     });
     return data;
   });
-
-  //render table of habits with prev 6 days status and dropdown to update status..
-  return (
-    <div className='tracker-container'>
-      <Row justify='space-around' align='middle'>
+  return(
+    <div  className='tracker-container'>
+     <Row justify='space-around' align='middle'>
         <Col span={22}>
           <Table columns={columns} dataSource={data} />
         </Col>
       </Row>
     </div>
-  );
-}
+  ) }
 
 function mapStateToProps(state) {
   return {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import Habit from './Habit';
+import { openNotify } from '../helpers';
 function Main(props) {
   //input the habit title
   const [title, setTitle] = useState('');
@@ -24,12 +25,18 @@ function Main(props) {
     );
 
     setTitle('');
+    openNotify(
+      'success',
+      'Habit Added',
+      'You Successfully added habit. Now track your habit!!'
+    );
   };
 
   //to dispatch action to delete habit
   const handleDelete = (habit) => {
     console.log('delete', habit);
     props.dispatch(deleteHabit(habit));
+    openNotify('error', 'Habit Removed', 'You have Successfully deleted habit!!');
   };
   const style ={
     margin:'30px',
@@ -51,6 +58,7 @@ function Main(props) {
     </div>
    <Habit
    habits={props.state.habits}
+   notify={openNotify}
    handleDelete={handleDelete}
    history={props.history}
  />    
