@@ -14,7 +14,8 @@ function Main(props) {
   };
 
   //to dispatch action to add habit
-  const handleaddHabit = () => {
+  const handleaddHabit = (e) => {
+    e.preventDefault();
     props.dispatch(
       addHabit({
         key: Math.round(Math.random() * 100),
@@ -45,12 +46,12 @@ function Main(props) {
     marginBottom:'100px'
   }
 
-  // render input and add button along with display all cards=habit added
+  // render input and add button along with display all cards habit added
   return (
     <div>
     <div justify='space-around' align='middle'>
     <Form style={style} onSubmit={handleaddHabit}>
-    <Form.Group className="mb-3">
+      <Form.Group className="mb-3">
         <Form.Control type='text' required onChange={handleAddChange} placeholder='Add Habit Now!!'/>
       </Form.Group>
       <Button type='submit'>Add Habit</Button>
