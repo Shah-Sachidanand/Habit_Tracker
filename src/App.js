@@ -7,11 +7,8 @@ function App() {
 
   const style = {
     color:'Gold',
-    margin:'200px',
-    height: '50px',
-    width: '490px',
+    marginTop:'100px',
     marginLeft:'33.33%',
-    // marginTop:'33.33%'
   }
   //render layout- header-navbar content-main and tracker and footer
   return (
