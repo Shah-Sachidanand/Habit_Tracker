@@ -9,6 +9,7 @@ function App() {
     color:'Gold',
     marginTop:'100px',
     marginLeft:'33.33%',
+    width:'490px'
   }
   //render layout- header-navbar content-main and tracker and footer
   return (
