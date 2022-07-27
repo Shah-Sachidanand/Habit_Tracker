@@ -57,7 +57,7 @@ function Main(props) {
       <Button type='submit'>Add Habit</Button>
       </Form>
     </div>
-   <Habit
+   <Habit 
    habits={props.state.habits}
    notify={openNotify}
    handleDelete={handleDelete}

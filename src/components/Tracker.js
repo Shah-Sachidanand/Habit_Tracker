@@ -36,6 +36,7 @@ function Tracker(props) {
     {
       title: dt - 6 + ' ' + mt,
       dataIndex: 'dt_6',
+      key: 'dt-6',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[6]} onChange={handleUpdateStatus}>
@@ -49,6 +50,7 @@ function Tracker(props) {
     {
       title: dt - 5 + ' ' + mt,
       dataIndex: 'dt_5',
+      key: 'dt-5',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[5]} onChange={handleUpdateStatus}>
@@ -62,6 +64,7 @@ function Tracker(props) {
     {
       title: dt - 4 + ' ' + mt,
       dataIndex: 'dt_4',
+      key: 'dt-4',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[4]} onChange={handleUpdateStatus}>
@@ -75,6 +78,7 @@ function Tracker(props) {
     {
       title: dt - 3 + ' ' + mt,
       dataIndex: 'dt_3',
+      key: 'dt-3',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[3]} onChange={handleUpdateStatus}>
@@ -88,6 +92,7 @@ function Tracker(props) {
     {
       title: dt - 2 + ' ' + mt,
       dataIndex: 'dt_6',
+      key: 'dt-2',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[2]} onChange={handleUpdateStatus}>
@@ -101,6 +106,7 @@ function Tracker(props) {
     {
       title: dt - 1 + ' ' + mt,
       dataIndex: 'dt_1',
+      key: 'dt-1',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[1]} onChange={handleUpdateStatus}>
@@ -114,6 +120,7 @@ function Tracker(props) {
     {
       title: dt  + ' ' + mt,
       dataIndex: 'dt',
+      key: 'dt',
       render: (habit) => (
         <>
         <Select style={{width:'120'}} defaultValue={habit.status[0]} onChange={handleUpdateStatus}>
@@ -130,6 +137,7 @@ function Tracker(props) {
   const data =[];
   habits.map((habit, index) => {
     data.push({
+      key: index + 1,
       habit: `${habit.title}`,
       dt_6: habit,
       dt_5: habit,
