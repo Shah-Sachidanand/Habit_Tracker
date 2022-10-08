@@ -36,7 +36,7 @@ function Habit(props) {
               <Card style={style}>
                 <Card.Body>
                   <Card.Title>
-                    {habit.title}-
+                    {habit.title} -
                     <Button className='rbtn' variant="outline-danger" size="sm" onClick={(e) => handleDelete(habit)}>
                         Remove
                       </Button>

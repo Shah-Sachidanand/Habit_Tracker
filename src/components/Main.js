@@ -8,14 +8,17 @@ import { openNotify } from '../helpers';
 function Main(props) {
   //input the habit title
   const [title, setTitle] = useState('');
+  const [val, setVal] = useState();
+
 
   const handleAddChange = (e) => {
     setTitle(e.target.value);
+    
   };
 
   //to dispatch action to add habit
   const handleaddHabit = (e) => {
-    e.preventDefault();
+    setVal('');
     props.dispatch(
       addHabit({
         key: Math.round(Math.random() * 100),
@@ -52,7 +55,7 @@ function Main(props) {
     <div justify='space-around' align='middle'>
     <Form style={style} onSubmit={handleaddHabit}>
       <Form.Group className="mb-3">
-        <Form.Control type='text' required onChange={handleAddChange} placeholder='Add Habit Now!!'/>
+        <Form.Control type='text' value={val} required onChange={handleAddChange} placeholder='Add Habit Now!!'/>
       </Form.Group>
       <Button type='submit'>Add Habit</Button>
       </Form>
