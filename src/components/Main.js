@@ -18,6 +18,7 @@ function Main(props) {
 
   //to dispatch action to add habit
   const handleaddHabit = (e) => {
+    // e.preventDefault();
     setVal('');
     props.dispatch(
       addHabit({
