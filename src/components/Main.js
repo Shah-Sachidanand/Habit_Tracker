@@ -11,11 +11,14 @@ function Main(props) {
 
   const handleAddChange = (e) => {
     setTitle(e.target.value);
+    
   };
 
   //to dispatch action to add habit
   const handleaddHabit = (e) => {
     e.preventDefault();
+    setTitle('');
+ document.querySelector('input').defaultValue = '';
     props.dispatch(
       addHabit({
         key: Math.round(Math.random() * 100),
